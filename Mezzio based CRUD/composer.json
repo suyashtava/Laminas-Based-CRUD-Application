@@ -1,0 +1,74 @@
+{
+    "name": "koddlo/customer-api",
+    "description": "Customer API based on PSR-15 middleware Laminas Mezzio framework.",
+    "type": "project",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "laminas",
+        "mezzio",
+        "middleware",
+        "customer",
+        "api",
+        "koddlo",
+        "psr"
+    ],
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "laminas/laminas-component-installer": true
+        }
+    },
+    "extra": {
+        "laminas": {
+            "component-whitelist": [
+                "mezzio/mezzio",
+                "mezzio/mezzio-helpers",
+                "mezzio/mezzio-router",
+                "laminas/laminas-httphandlerrunner",
+                "mezzio/mezzio-fastroute"
+            ]
+        }
+    },
+    "require": {
+        "php": "8.0.*",
+        "composer/package-versions-deprecated": "^1.10.99",
+        "laminas/laminas-component-installer": "^2.1.2",
+        "laminas/laminas-config-aggregator": "^1.2",
+        "laminas/laminas-diactoros": "^2.3.0",
+        "laminas/laminas-inputfilter": "^2.12",
+        "laminas/laminas-servicemanager": "^3.4",
+        "laminas/laminas-stdlib": "^3.2.1",
+        "laminas/laminas-zendframework-bridge": "^1.0",
+        "mezzio/mezzio": "^3.2.1",
+        "mezzio/mezzio-authentication-basic": "^1.1",
+        "mezzio/mezzio-cors": "^1.0",
+        "mezzio/mezzio-fastroute": "^3.0.3",
+        "mezzio/mezzio-helpers": "^5.3",
+        "mongodb/mongodb": "^1.8",
+        "ramsey/uuid": "^4.1"
+    },
+    "require-dev": {
+        "laminas/laminas-development-mode": "^3.2",
+        "phpspec/prophecy": "^1.10.3",
+        "phpspec/prophecy-phpunit": "^2.0",
+        "phpunit/phpunit": "^9.3.7",
+        "roave/security-advisories": "dev-master",
+        "squizlabs/php_codesniffer": "^3.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Customer\\": "src/Customer/src",
+            "Auth\\": "src/Auth/src",
+            "Store\\": "src/Store/src",
+            "Error\\": "src/Error/src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CustomerTest\\": "src/Customer/test",
+            "AuthTest\\": "src/Auth/test",
+            "StoreTest\\": "src/Store/test",
+            "ErrorTest\\": "src/Error/test"
+        }
+    }
+}

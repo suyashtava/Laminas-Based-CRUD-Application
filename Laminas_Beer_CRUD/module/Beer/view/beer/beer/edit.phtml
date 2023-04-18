@@ -1,0 +1,75 @@
+<?php
+// module/Beer/view/Beer/Beer/edit.phtml:
+
+$title = 'Edit Beer';
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<?php
+$name = $form->get('name');
+$name->setAttribute('class', 'form-control');
+$name->setAttribute('placeholder', 'Beer name');
+
+$brewery_id = $form->get('brewery_id');
+$brewery_id->setAttribute('class', 'form-control');
+$brewery_id->setAttribute('placeholder', 'Brewery ID');
+
+$cat_id = $form->get('cat_id');
+$cat_id->setAttribute('class', 'form-control');
+$cat_id->setAttribute('placeholder', 'Cat ID');
+
+$email = $form->get('email');
+$email->setAttribute('class', 'form-control');
+$email->setAttribute('placeholder', 'EMAIL ID');
+
+$phone_number = $form->get('phone_number');
+$phone_number->setAttribute('class', 'form-control');
+$phone_number->setAttribute('placeholder', 'Phone Number');
+
+$submit = $form->get('submit');
+$submit->setAttribute('class', 'btn btn-primary');
+
+$form->setAttribute('action', $this->url('Beer', [
+    'action' => 'edit',
+    'id'     => $id,
+]));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+?>
+
+<div class="form-group">
+    <?= $this->formLabel($name) ?>
+    <?= $this->formElement($name) ?>
+    <?= $this->formElementErrors()->render($name, ['class' => 'help-block']) ?>
+</div>
+
+<div class="form-group">
+    <?= $this->formLabel($brewery_id) ?>
+    <?= $this->formElement($brewery_id) ?>
+    <?= $this->formElementErrors()->render($brewery_id, ['class' => 'help-block']) ?>
+</div>
+
+<div class="form-group">
+    <?= $this->formLabel($cat_id) ?>
+    <?= $this->formElement($cat_id) ?>
+    <?= $this->formElementErrors()->render($cat_id, ['class' => 'help-block']) ?>
+</div>
+
+<div class="form-group">
+    <?= $this->formLabel($email) ?>
+    <?= $this->formElement($email) ?>
+    <?= $this->formElementErrors()->render($email, ['class' => 'help-block']) ?>
+</div>
+
+<div class="form-group">
+    <?= $this->formLabel($phone_number) ?>
+    <?= $this->formElement($phone_number) ?>
+    <?= $this->formElementErrors()->render($phone_number, ['class' => 'help-block']) ?>
+</div>
+
+
+<?php
+echo $this->formSubmit($submit);
+echo $this->formHidden($form->get('id'));
+echo $this->form()->closeTag();

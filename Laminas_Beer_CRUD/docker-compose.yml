@@ -1,0 +1,36 @@
+version: "2.1"
+services:
+  laminas:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8090:80
+    expose:
+      - 8090
+    volumes:
+      - .:/var/www
+    links:
+      - mysql:mysql
+  mysql:
+    image: mysql
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+    command:
+      --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./.data/db2:/var/lib/mysql
+      - ./.docker/mysql/:/docker-entrypoint-initdb.d/
+    restart: always
+    environment:
+     - MYSQL_DATABASE= 'dblaminas'
+     - MYSQL_ROOT_PASSWORD= 'Buildabit2021Hackfest'
+#  phpmyadmin:
+#    image: phpmyadmin/phpmyadmin
+#    ports:
+#      - 8081:80
+#    environment:
+#      - PMA_HOST= "mysql"
+#

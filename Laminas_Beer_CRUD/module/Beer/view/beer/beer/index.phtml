@@ -1,0 +1,35 @@
+<?php
+// module/Beer/view/Beer/Beer/index.phtml:
+
+$title = 'My Beers';
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<p>
+    <a href="<?= $this->url('Beer', ['action' => 'add']) ?>">Add new Beer</a>
+</p>
+
+<table class="table">
+<tr>
+    <th>Beer Name</th>
+    <th>Brewery ID</th>
+    <th>Cat ID</th>
+    <th>Email ID</th>
+    <th>Phone Number</th>
+
+    <th>&nbsp;</th>
+</tr>
+<?php foreach ($Beers as $Beer) : ?>
+    <tr>
+        <td><?= $this->escapeHtml($Beer->name) ?></td>
+        <td><?= $this->escapeHtml($Beer->brewery_id) ?></td>
+        <td><?= $this->escapeHtml($Beer->cat_id) ?></td>
+        <td><?= $this->escapeHtml($Beer->email) ?></td>
+        <td><?= $this->escapeHtml($Beer->phone_number) ?></td>
+        <td>
+            <a href="<?= $this->url('Beer', ['action' => 'edit', 'id' => $Beer->id]) ?>">Edit</a>
+            <a href="<?= $this->url('Beer', ['action' => 'delete', 'id' => $Beer->id]) ?>">Delete</a>
+        </td>
+    </tr>
+<?php endforeach; ?>
+</table>
