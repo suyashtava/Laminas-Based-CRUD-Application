@@ -1,9 +1,13 @@
 # laminas-mvc-skeleton
 
 Access Port: 8090
+
 MySQL DB is also running in saperate Docker Container.
+
 $ docker-compose up -d --build
+
 $ docker-compose run laminas composer install
+
 
 Module Beer.
 
